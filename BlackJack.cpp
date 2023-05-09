@@ -241,7 +241,7 @@ void play(vector<player> &players){
 					for(int i =1;i<players.size();i++){
 						payout(players[0],players[i]);
 					}
-					input = 'S'; //sets input to stay since they just lost
+					input = 'S'; //sets input to stand since they just lost
 				}
 				cont = false; //if the dealer didn't have blackjack this is now false
 			}
@@ -265,23 +265,23 @@ void play(vector<player> &players){
 			*/
 			if(score(players[0].hand) <= 21){
 					/**
-					The most complicated first - if they have a pair of 5's they can split, double down, hit, or stay
+					The most complicated first - if they have a pair of 5's they can split, double down, hit, or stand
 					*/
 					if(((players[i].hand[0].value >= 10 && players[i].hand[1].value >= 10) || players[i].hand[0].value == players[i].hand[1].value) && players[i].hand.size() == 2  && score(players[i].hand) == 10){ 
 						cout << players[i].info.username << " score: " << score(players[i].hand) << endl; //shows them their score
-						cout << "Would you like to Double Down(D), split(L),take a hit(H), or stay(S), default is to take a stay?" << endl; //ask them
+						cout << "Would you like to Double Down(D), split(L),take a hit(H), or stand(S), default is to take a stand?" << endl; //ask them
 					}
 					else if(((players[i].hand[0].value >= 10 && players[i].hand[1].value >= 10) || (players[i].hand[0].value == players[i].hand[1].value)) && players[i].hand.size() == 2){ //if they can split their cards
 						cout << players[i].info.username << " score: " << score(players[i].hand) << endl; //shows them their score
-						cout << "Would you like to split(L) your cards, take a hit(H), or stay(S), default is to take a stay?" << endl; //ask them
+						cout << "Would you like to split(L) your cards, take a hit(H), or stand(S), default is to take a stand?" << endl; //ask them
 					}
 					else if(players[i].hand.size() == 2 && score(players[i].hand) >= 9 && score(players[i].hand) <= 11 && !(hasAce(players[i].hand))){ //can they double down
 						cout << players[i].info.username << " score: " << score(players[i].hand) << endl; //shows them their score
-						cout << "Would you like to Double Down(D), take a hit(H), or stay(S), default is to take a stay?" << endl; //asks them
+						cout << "Would you like to Double Down(D), take a hit(H), or stand(S), default is to take a stand?" << endl; //asks them
 					}
 					else{ //they can't do anything special
 						cout << players[i].info.username << " score: " << score(players[i].hand) << endl; //shows them their score
-						cout << "Hit(H) or Stay(S), default is to take a stay?" << endl; //asks them what they want to do
+						cout << "Hit(H) or Stand(S), default is to take a stand?" << endl; //asks them what they want to do
 					}
 					cin >> input; //takes in the input
 					switch(input){ //what did they choose?
@@ -306,7 +306,7 @@ void play(vector<player> &players){
 						input = 'S'; //so we can quit
 					}
 			}
-		}while(!(input == 'S' || input == 's')); //we continue doing this until they are want to stay
+		}while(!(input == 'S' || input == 's')); //we continue doing this until they are want to stand
 	}
 
 	dealer_play(players[0]); //now the dealer plays
@@ -532,7 +532,7 @@ void split(player &dealer, player &user){
 				input = 'S'; //they are done
 			}
 			else{
-				cout << "Hit(H) or Stay(S):"; //otherwise we ask them if they want to take a hit
+				cout << "Hit(H) or Stand(S):"; //otherwise we ask them if they want to take a hit
 				cin >> input; //take in their input
 			}
 			/**
