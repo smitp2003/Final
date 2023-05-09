@@ -141,6 +141,7 @@ int main(){
 			}
 
 			if(cond && players.size() > 1){//if they have played at least once
+				cout << endl;
 				cout << players[i].info.username << " Would you like to keep playing(P) or quit(Q)" << endl;
 				cin >> input; //takes in input
 				if(input == 'q' || input == 'Q'){ //player want to quit
@@ -208,9 +209,9 @@ void play(vector<player> &players){
 	/**
 		The below function shows each players score but the dealers
 	*/
-	/*for(int i=1;i<players.size();i++){
-		cout << players[i].info.username << " has: " << score(players[i].hand) << setw(10) << endl;
-	}*/
+	for(int i=1;i<players.size();i++){
+		//cout << players[i].info.username << " has: " << score(players[i].hand) << setw(10) << endl;
+	}
 
 	/**
 		The below function displays each persons cards
@@ -280,7 +281,7 @@ void play(vector<player> &players){
 					}
 					else{ //they can't do anything special
 						cout << players[i].info.username << " score: " << score(players[i].hand) << endl; //shows them their score
-						cout << "Hit(H) or Stay(S), default is to take a stay?"; //asks them what they want to do
+						cout << "Hit(H) or Stay(S), default is to take a stay?" << endl; //asks them what they want to do
 					}
 					cin >> input; //takes in the input
 					switch(input){ //what did they choose?
@@ -540,7 +541,8 @@ void split(player &dealer, player &user){
 			if(input == 'H' || input == 'h'){
 				players[i].hand.push_back(hitMe());
 				printCards(players[i].hand);
-				cout << players[i].info.username << " score is now " << score(players[i].hand) << endl;							
+				cout << players[i].info.username << " score is now " << score(players[i].hand) << endl;		
+				cout << endl;					
 			}
 		}
 	}while(!(input == 'S' || input == 's')); //we repeat this until they stop taking hits or bust
@@ -560,7 +562,8 @@ void split(player &dealer, player &user){
 	*/
 	for(int i =1;i<players.size();i++){
 		if(score(players[i].hand) > 21){
-			cout << "You busted!"; //tells them they busted
+			cout << endl;
+			cout << "You busted!" << endl;; //tells them they busted
 		}
 		payout(players[0],players[i]); //plays out the player
 	}	
