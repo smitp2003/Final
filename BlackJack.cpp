@@ -1,9 +1,7 @@
 /**
-	Game of Blackjack
-	You can play with one or two players
-	each player creaates a account if they don't have one and if they do they can load their existing data
-	Each player and the dealer are dealt two cards, the dealers first card is face down
-
+	For our final we create BlackJack where player create thier account and add
+	funds for them to use to bet when playing. 
+	
 	Authors: Smit Patel, Vedaant Patel
 
 	Date: May 4, 2023
