@@ -626,10 +626,8 @@ void doubleDown(player dealer, player &user){
 	user.hand.push_back(deal()); //gives the user one more card
 	payout(dealer, user); //pays out the player based on if he/she won		
 }
-/**
-Returns the Character version of the suit
-Fairly self-explanatory...takes in a number between 0-4 and returns the suit based off that number
-*/
+
+// prints suit
 char printSuit(card new_card){
 	switch(new_card.suit){ 
 		case 0:
@@ -643,9 +641,7 @@ char printSuit(card new_card){
 	}
 }
 
-/**
-Prints the cards to the screen
-*/
+// print cards
 void printCards(vector<card> hand){
 	const string CARD_VALUES[14] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "X"}; //makes it easier to print
 
@@ -660,9 +656,8 @@ void printCards(vector<card> hand){
 	}
 	cout << endl;
 }
-/**
-	Lets us know if the hand has an ace
-*/
+
+// checks to see if a hand has a ace
 bool hasAce(vector<card> hand){
 	bool has_ace = false; //For now we say there is no ace in the hand
 	for(int i =0;i<hand.size();i++){
@@ -673,10 +668,8 @@ bool hasAce(vector<card> hand){
 
 	return has_ace;
 }
-/**
-	Gets the score for the user
-	We treat Aces initially as 1 and then later check to see if the hand contains an Ace
-*/
+
+// Gets score for user 
 int score(vector<card> hand){
 	int total = 0; //setting up the total value
 	for(int i = 0; i<hand.size();i++){
@@ -698,12 +691,8 @@ int score(vector<card> hand){
 card hitMe(){
 	return deal(); //add another card to the players hand
 }
-/**
-	takes in nothing and returns a card
-	makes a new card and assigns it a random value between 1-13
-	assigns a suit to the card as well
-	returns the card
-*/
+
+// Deals random card
 card deal(){
 	card new_card; //card we will be returning
 
