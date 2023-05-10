@@ -650,13 +650,7 @@ void printCards(vector<card> hand){
 	const string CARD_VALUES[14] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "X"}; //makes it easier to print
 
 	for(int i=0;i<hand.size();i++){
-		/**cout << "----------" <<  endl
-			<< "|" << ((hand[i].up)?(hand[i].value):('X')) << ((hand[i].up)?((printSuit(hand[i]))):('X')) << setw(6) << "|" << endl
-				<< "|" << setw(8) << "|" << endl
-				<< "|" << setw(8) << "|" << endl
-				<< "|" << setw(8) << "|" << endl
-				<< "|" << setw(6) << ((hand[i].up)?(hand[i].value):('X')) <<  ((hand[i].up)?(printSuit(hand[i])):('X')) << "|" << endl
-				<< "----------" << endl;*/
+		
 		if(hand[i].up){ //if the hand is face up we print this
 			cout << CARD_VALUES[(hand[i].value-1)] << printSuit(hand[i]) << " "; 
 		}
